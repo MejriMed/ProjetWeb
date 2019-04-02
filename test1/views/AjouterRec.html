@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<center>
+<h3>Formulaire de reclamation </h3>
+<form method="POST" action="AjouterRec.php" onsubmit="return verifprob();">
+  <div>
+    <p>
+      <label>Votre email</label> <br>
+      <input type="email" name="mail" placeholder="----@----.---">
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <label>Specifier votre probleme</label> <br>
+      <select name="probleme" id="prob" required>
+             <option></option>
+             <option value="Information erronee dans le catalogue ou sur le site web">Information erronée dans le catalogue ou sur le site web</option>
+             <option value="Produit endommage ou casse">Produit endommagé ou cassé</option>
+             <option value="Produit Manquant a la livraison">Produit Manquant à la livraison</option>
+             <option value="Produit livre non commande">Produit livré non commandé</option>
+             <option value="autre">Autre</option>
+         </select> <br>
+
+         <label class="control-label">Si "Autre", merci de préciser</label> <br>
+        <input type="text" name="probleme1"  pattern="[a-zA-Z-\.]{3,24}" id="prob1" >
+      </p>
+      <script >
+        function verifprob(){
+        if (document.getElementById("prob").value=="autre") {
+          if (document.getElementById("prob1").value=="") {
+            alert ("Préciser votre probleme");
+            return false;
+          }
+        }
+      }
+      </script>
+  </div>
+
+  <div>
+    <p>
+      <label>Image</label>
+        <input name="image" type="file" >
+    </p>
+  </div>
+
+  <div>
+    <p>
+    <label >Description</label> <br>
+      <textarea rows="4" cols="50" name="description" placeholder="Description" required pattern="[A-Za-z].{4,}"></textarea>
+    </p>
+  </div>
+
+
+  <input type="submit" name="ajouter" value="Ajouter" >
+  <input type="reset" value="Reset" style="background-color:#0c2646;border-color:#0c2646; color:white;">
+
+</form>
+</center>
+</body>
+</html>
